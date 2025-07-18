@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FEFEFE; /* pure white with subtle warmth */
+    --color-foreground: #2C3E50; /* dark blue-gray */
+    --color-border: #E9ECEF; /* light gray border */
+    --color-input: #FFFFFF; /* white input background */
+    --color-ring: #2D5A3D; /* deep forest green */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white card background */
+    --color-card-foreground: #2C3E50; /* dark blue-gray */
+    --color-popover: #FFFFFF; /* white popover background */
+    --color-popover-foreground: #2C3E50; /* dark blue-gray */
+    
+    /* Muted Colors */
+    --color-muted: #F8F9FA; /* light neutral surface */
+    --color-muted-foreground: #6C757D; /* medium gray */
+    
+    /* Primary Colors */
+    --color-primary: #2D5A3D; /* deep forest green */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #8B4513; /* warm saddle brown */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #FF6B35; /* energetic coral */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* State Colors */
+    --color-success: #28A745; /* standard success green */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #FFC107; /* amber warning */
+    --color-warning-foreground: #2C3E50; /* dark blue-gray */
+    
+    --color-error: #DC3545; /* clear red error */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #DC3545; /* clear red destructive */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Typography Classes */
+  .font-heading {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .font-caption {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Custom Shadow System */
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  
+  .shadow-soft-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  }
+  
+  /* Animation Classes */
+  .animate-cart-bounce {
+    animation: cartBounce 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  @keyframes cartBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .animate-gentle-pulse {
+    animation: gentlePulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes gentlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  /* Micro-interaction Classes */
+  .hover-lift {
+    transition: transform 200ms ease-out;
+  }
+  
+  .hover-lift:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-cart-bounce,
+    .animate-gentle-pulse,
+    .hover-lift {
+      animation: none;
+      transition: none;
+    }
+    
+    .hover-lift:hover {
+      transform: none;
+    }
+  }
+}
